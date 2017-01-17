@@ -1,5 +1,6 @@
 # bertrand_simulation
-Short script by Michael Zeevi to simulate the result of the Bertrand's box paradox:
+Short script by Michael Zeevi
+that simulates the result of the Bertrand's box paradox:
 
 There are three boxes:
 
