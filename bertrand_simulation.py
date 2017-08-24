@@ -31,7 +31,7 @@ def simulation(cases = 10000):
 
     print('\nRunning simulations...')
 
-    for trial in xrange(cases):
+    for trial in range(cases):
         boxes = [
                  ['gold', 'gold'],
                  ['gold', 'silver'],
@@ -41,20 +41,20 @@ def simulation(cases = 10000):
         box = random.choice(boxes)
         first = random.choice(box)
         counts['first'][first] += 1
-        
+
         if first == 'gold':
             box.remove('gold')
             second = random.choice(box)
             counts['second'][second] += 1
 
     return counts
-            
+
 def main():
     print('\n\tWelcome to Bertrand\'s box simulation by Michael Zeevi.')
-    print('\tFor more information see source code at github (<<insert link>>).')  # insert link!
+    print('\tFor more information see source code at github (https://github.com/maze88/bertrand_simulation).')  # insert link!
     print('\tAmount of test cases can be adjusted by adding optional argument after bertrand_simulation.py.')
     print('\tDefault number of test cases is 10000. Recommended value: 10^4 < cases < 10^6')
-    
+
     try:
         cases = abs(int(sys.argv[1]))
         results = simulation(cases)
@@ -65,7 +65,7 @@ def main():
     results['first']['gold_percent'] = 100 * results['first']['gold'] / results['cases']
     results['second']['gold_percent'] = 100 * results['second']['gold'] / results['first']['gold']
     results['second']['silver_percent'] = 100 * results['second']['silver'] / results['first']['gold']
-        
+
     print('Complete!\n')
     print('\tOut of {r[cases]} test cases, in {r[first][gold]} cases (~{r[first][gold_percent]}%) where the first coin was gold:'.format(r = results))
     print('\tThe second coin was gold in {r[second][gold]} cases (~{r[second][gold_percent]}%).'.format(r = results))
