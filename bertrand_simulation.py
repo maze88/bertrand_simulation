@@ -17,27 +17,25 @@ Description from https://en.wikipedia.org/wiki/Bertrand's_box_paradox
 17/1/2017
 """
 
-def simulation(cases = 10000):
+def simulation(cases=10000):
     counts = {
-               'cases': cases,
-               'first': {
-                         'gold': 0,
-                         'silver': 0
-                        },
-               'second': {
-                         'gold': 0,
-                         'silver': 0
-                        }
-              }
+        'cases': cases,
+        'first': {
+            'gold': 0,
+            'silver': 0
+        }, 'second': {
+            'gold': 0,
+            'silver': 0
+        }
+    }
 
     print('\nRunning simulations...')
-
-    for trial in range(cases):
+    for _ in range(cases):
         boxes = [
-                 ['gold', 'gold'],
-                 ['gold', 'silver'],
-                 ['silver', 'silver']
-                ]
+            ['gold', 'gold'],
+            ['gold', 'silver'],
+            ['silver', 'silver']
+        ]
 
         box = random.choice(boxes)
         first = random.choice(box)
@@ -68,9 +66,9 @@ def main():
     results['second']['silver_percent'] = 100 * results['second']['silver'] / results['first']['gold']
 
     print('Complete!\n')
-    print('\tOut of {r[cases]} test cases, in {r[first][gold]} cases (~{r[first][gold_percent]}%) where the first coin was gold:'.format(r = results))
-    print('\tThe second coin was gold in {r[second][gold]} cases (~{r[second][gold_percent]}%).'.format(r = results))
-    print('\tThe second coin was silver in {r[second][silver]} cases (~{r[second][silver_percent]}%).'.format(r = results))
+    print('\tOut of {r[cases]} test cases, in {r[first][gold]} cases (~{r[first][gold_percent]}%) where the first coin was gold:'.format(r=results))
+    print('\tThe second coin was gold in {r[second][gold]} cases (~{r[second][gold_percent]}%).'.format(r=results))
+    print('\tThe second coin was silver in {r[second][silver]} cases (~{r[second][silver_percent]}%).'.format(r=results))
     print('\nQuitting...\n')
 
 
